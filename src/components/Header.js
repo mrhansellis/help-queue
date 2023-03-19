@@ -2,10 +2,20 @@ import React from "react";
 import ticketMan from "./../img/ticketman.png"
 
 function Header(){
+  
+  const headerStyles = {
+    backgroundColor: "#F6F6F6",
+    fontFamily: "sans-serif",
+    paddingTop: "10px",
+    textAlign: "center"
+  }
+  
   return (
   <React.Fragment>
-    <h1>Help Queue</h1>
-    <img src={ticketMan} alt="An image of a stressed out man managing a mess of paper tickets" />
+    <div style={headerStyles}>
+      <h1>Help Queue</h1>
+      <img src={ticketMan} alt="a stressed out man managing a mess of paper tickets" />
+    </div>
   </React.Fragment>
   );
 }

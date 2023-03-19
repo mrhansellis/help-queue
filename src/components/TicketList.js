@@ -1,35 +1,23 @@
 import React from "react";
-import Ticket from "./Ticket"
+import Ticket from "./Ticket";
+import PropTypes from "prop-types";
 
-const mainTicketList = [
-  {
-    names: 'Thato and Haley',
-    location: '3A',
-    issue: 'Firebase won\'t save record. Halp.'
-  },
-  {
-    names: 'Sleater and Kinney',
-    location: '4B',
-    issue: 'Prop typues are throwing an errer.'
-  },
-  {
-    names: 'Imani and Jacob',
-    location: '9F',
-    issue: 'Child componont isn\'t rendering'
-  }
-];
-
-function TicketList(){
+function TicketList(props) { // Add props as a paramater
   return (
     <React.Fragment>
-      {mainTicketList.map((ticket, index) =>
-        <Ticket names={ticket.names}
+      <hr />
+      {props.ticketList.map((ticket, index) => //Loop throught the list passed down from TicketControl.
+      <Ticket names={ticket.names}
         location={ticket.location}
         issue={ticket.issue}
-        key={index}/>
+        key={index} />
       )}
     </React.Fragment>
-  );
+  )
 }
+
+TicketList.propTypes = {
+  ticketList: PropTypes.array
+};
 
 export default TicketList;
