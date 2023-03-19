@@ -10,7 +10,8 @@ function Ticket(props){
     backgroundColor: "#F6F6F6",
     fontFamily: "sans-serif",
     paddingTop: "10px",
-    textAlign: "center"
+    textAlign: "center",
+    margin: "auto"
   }
   
   return (

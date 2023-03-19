@@ -3,6 +3,7 @@ import NewTicketForm from './NewTicketForm';
 //import QuestionOne from './QuestionOne';
 import TicketList from './TicketList';
 import TicketDetail from './TicketDetail';
+import EditTicketForm from './EditTicketForm';
 
 class TicketControl extends React.Component {
   constructor(props) {
@@ -53,12 +54,21 @@ class TicketControl extends React.Component {
     }
   }
 
-
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.state.selectedTicket != null) {
+    const ticketListStyles = {
+      backgroundColor: "#F6F6F6",
+      fontFamily: "sans-serif",
+      paddingTop: "10px",
+      textAlign: "center"
+    }
+
+    if (this.state.editing) {
+      currentlyVisibleState = <EditTicketForm ticket = {this.state.selectedTicket} />
+      buttonText = "Return to Ticket List";
+      } else if (this.state.selectedTicket != null) {
       currentlyVisibleState = <TicketDetail 
                               ticket = {this.state.selectedTicket}
                               onClickingDelete = {this.handleDeletingTicket}
@@ -73,8 +83,10 @@ class TicketControl extends React.Component {
     }
     return (
       <React.Fragment>
-        {currentlyVisibleState}
-        <button onClick={this.handleClick}>{buttonText}</button>
+        <div style={ticketListStyles}>
+          {currentlyVisibleState}
+          <button onClick={this.handleClick}>{buttonText}</button>
+        </div>
       </ React.Fragment>
     );
   }
