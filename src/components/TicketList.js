@@ -2,22 +2,26 @@ import React from "react";
 import Ticket from "./Ticket";
 import PropTypes from "prop-types";
 
-function TicketList(props) { // Add props as a paramater
+function TicketList(props) {
   return (
     <React.Fragment>
       <hr />
-      {props.ticketList.map((ticket, index) => //Loop throught the list passed down from TicketControl.
-      <Ticket names={ticket.names}
+      {props.ticketList.map((ticket) => 
+        <Ticket 
+        whenTicketClicked = { props.onTicketSelection }
+        names={ticket.names}
         location={ticket.location}
         issue={ticket.issue}
-        key={index} />
+        id={ticket.id}
+        key={ticket.id} />
       )}
     </React.Fragment>
   )
 }
 
 TicketList.propTypes = {
-  ticketList: PropTypes.array
+  ticketList: PropTypes.array,
+  onTicketSelection: PropTypes.func
 };
 
 export default TicketList;
