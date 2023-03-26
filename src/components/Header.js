@@ -5,7 +5,7 @@ function Header(){
   
   const headerStyles = {
     backgroundColor: "#F6F6F6",
-    fontFamily: "sans-serif",
+    fontFamily: "Bookman, URW Bookman L, serif",
     paddingTop: "10px",
     textAlign: "center"
   }
